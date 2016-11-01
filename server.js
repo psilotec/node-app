@@ -1,25 +1,29 @@
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
+
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
+
+// Configure app to use bodyParser()
+// gets the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// set port
+// Set port
 var port = process.env.PORT || 8080;
 
 // ROUTES FOR API
 // get an instance of the express Router
 var router = express.Router();
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// Test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
     res.json({ message: 'api test successful' });
 });
 
-// more routes for API will happen here
+// More routes for API will happen here
 
 // REGISTER ROUTES
 // all routes will be prefixed with /api
