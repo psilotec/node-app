@@ -3,8 +3,9 @@ var app = express();
 var bodyParser = require('body-parser');
 
 
-var mongoose   = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
+var mongoose = require('mongoose');
+var mongodbUri = 'mongodb://sdevito:<dbpassword>@ds139327.mlab.com:39327/sddb1';
+mongoose.connect(mongodbUri);
 
 // Configure app to use bodyParser()
 // gets the data from a POST
