@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
 
 var mongoose = require('mongoose');
-var mongodbUri = 'mongodb://sdevito:<dbpassword>@ds139327.mlab.com:39327/sddb1';
+var mongodbUri = process.env.DB_URI;
 mongoose.connect(mongodbUri);
 
 // Configure app to use bodyParser()
